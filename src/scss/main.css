@@ -63,21 +63,36 @@ header.site-header .moonPhaseHeader ul {
   overflow: hidden;
 }
 
-.hero-image {
+.hero-image-one {
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
+  width: 75%;
   -o-object-fit: cover;
      object-fit: cover;
   z-index: 1;
 }
-
-@media (max-width: 1111px) {
-  .hero-image {
+@media (max-width: 1400px) {
+  .hero-image-one {
+    width: 70%;
+  }
+}
+@media (max-width: 1200px) {
+  .hero-image-one {
+    width: 52%;
+  }
+}
+@media (max-width: 900px) {
+  .hero-image-one {
     display: none;
   }
 }
+
+.hero-image-two {
+  display: none;
+}
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -113,4 +128,27 @@ header.site-header .moonPhaseHeader ul {
   color: #9B8EC4;
   line-height: 1.8;
   margin-bottom: 32px;
+}
+
+@media (max-width: 900px) {
+  .hero-image-two {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    z-index: 1;
+  }
+  .hero {
+    flex-direction: column;
+    min-height: unset;
+  }
+  .hero-content {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px 10px;
+  }
 }/*# sourceMappingURL=main.css.map */
