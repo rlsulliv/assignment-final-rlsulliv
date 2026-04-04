@@ -1,0 +1,68 @@
+@use 'variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Raleway:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    background-color: $background-dark;
+    color: $text-primary;
+    font-family: $font-body;
+}
+
+header.site-header {
+  padding: 0;
+  background-color: $background-dark;
+  width:100%;
+
+  .holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    
+    .site-name {
+      font-family: $font-display;
+      color: $text-primary;
+      font-size: 1.5rem;
+    }
+  }
+    .gold-navbar {
+        background-color: $gold !important;
+
+        .nav-link {
+            color: $accent-purple;
+
+        &:hover {
+                color: $background-dark;
+            }
+        }
+        
+        a {
+            padding: 0 !important;
+            margin-right: 60px;
+            font-family: $font-display;
+            font-weight: bold;
+        }
+    }
+
+    .moonPhaseHeader {
+        ul {
+        display: flex;
+        list-style: none;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Raleway:wght@300;400;500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0D1B2A;
+  color: #E8E0F0;
+  font-family: "Raleway", sans-serif;
+}
+
+header.site-header {
+  padding: 0;
+  background-color: #0D1B2A;
+  width: 100%;
+}
+header.site-header .holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+header.site-header .logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+header.site-header .logo .site-name {
+  font-family: "Cinzel", serif;
+  color: #E8E0F0;
+  font-size: 1.5rem;
+}
+header.site-header .gold-navbar {
+  background-color: #C9A84C !important;
+}
+header.site-header .gold-navbar .nav-link {
+  color: #3D2B6B;
+}
+header.site-header .gold-navbar .nav-link:hover {
+  color: #0D1B2A;
+}
+header.site-header .gold-navbar a {
+  padding: 0 !important;
+  margin-right: 60px;
+  font-family: "Cinzel", serif;
+  font-weight: bold;
+}
+header.site-header .moonPhaseHeader ul {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}/*# sourceMappingURL=main.css.map */
