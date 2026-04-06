@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Home from './components/Home';
-import BirthChart from './components/BirthChart'
+import MoonPhases from './components/MoonPhases';
+import BirthChart from './components/BirthChart';
 
 function App() {
  
@@ -12,6 +13,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/MoonPhases" element={<MoonPhases />} />
           <Route path="/BirthChart" element={<BirthChart />} />
         </Routes>
       </main>

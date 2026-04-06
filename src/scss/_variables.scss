@@ -7,3 +7,9 @@ $text-muted:#9B8EC4;
 
 $font-display: 'Cinzel', serif;
 $font-body: 'Raleway', sans-serif;
+
+$theme-colors: (
+    "primary": $background-muted,
+    "dark": $accent-purple,
+    "warning": $gold
+);

@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Raleway:wght@300;400;500&display=swap');
 
 * {
@@ -6,79 +7,63 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
     background-color: $background-dark;
     color: $text-primary;
     font-family: $font-body;
 }
 
+.text-white { color: $text-primary; }
+.bg-primary { background-color: $background-muted; }
+.bg-gold { background-color: gold; }
+.btn-gold { background-color: $gold !important; }
+.border-gold { border: 3px solid $gold !important; color: $background-muted !important; }
+.bg-primary.card {
+  color: $text-primary !important;
+  .card-title, .card-body, strong {
+    color: $text-primary !important;
+  }
+}
+
 header.site-header {
-  padding: 0;
-  background-color: $background-dark;
-  width:100%;
-
-  .holder {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    
+    background-color: $background-dark;
+    width:100%;
     .site-name {
-      font-family: $font-display;
-      color: $text-primary;
-      font-size: 1.5rem;
-    }
-  }
-    .gold-navbar {
-        background-color: $gold !important;
-
-        .nav-link {
-            color: $accent-purple;
-
-        &:hover {
-                color: $background-dark;
-            }
+        font-family: $font-display;
+        color: $text-primary;
+        font-size: 1.5rem;
         }
-        
-        a {
-            padding: 0 !important;
-            margin-right: 60px;
-            font-family: $font-display;
-            font-weight: bold;
-        }
-    }
-
     .moonPhaseHeader {
         text-align: right;
         font-family: $font-display;
         font-size: 0.85 rem;
         color: $text-primary;
         padding-right: 10px;
-
-        div:first-child {
-            margin-bottom: 2px;
-            margin-top: 10px;
-        }
         div:last-child {
             color: $text-muted;
             font-size: 0.75rem;
         }
     }
 }
-    .hero {
-    position: relative;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
+    .gold-navbar {
+        background-color: $gold !important;
+        .nav-link {
+            color: $accent-purple;
+            font-family: $font-display;
+            font-weight: bold;
+            margin-right: 60px;
+            padding: 0 !important;
+            &:hover { color: $background-dark; }
+        }
     }
-
+ 
+    .hero {
+        position: relative;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
     .hero-image-one {
         position: absolute;
         right: 0;
@@ -87,23 +72,17 @@ header.site-header {
         width: 75%;
         object-fit: cover;
         z-index:1;
-
         @media (max-width: 1400px) { width: 70%; }
         @media (max-width: 1200px) { width: 52%; }
         @media (max-width: 900px)  { display: none; }
     }
-
-    .hero-image-two {
-        display: none;
-    }
-    
+    .hero-image-two { display: none; }
     .hero-content {
         position: relative;
         z-index: 2;
         max-width: 520px;
         padding: 0 60px;
     }
-
     .hero-tagline {
         font-family: $font-body;
         font-size: 12px;
@@ -112,7 +91,6 @@ header.site-header {
         text-transform: uppercase;
         margin-bottom: 16px;
     }
-
     .hero-title {
         font-family: $font-display;
         font-size: 42px;
@@ -120,12 +98,8 @@ header.site-header {
         color: $text-primary;
         line-height: 1.3;
         margin-bottom: 16px;
-
-        span {
-            color: $gold;
-        }
+        span { color: $gold; }
     }
-
     .hero-desc {
         font-family: $font-body;
         font-weight: 300;
@@ -144,32 +118,11 @@ header.site-header {
             height: 50%;
             object-fit: cover;
             z-index: 1;
-
         }
-
-        .hero {
-            flex-direction: column;
-            min-height: unset;
-        }
-
+        .hero { flex-direction: column; min-height: unset; }
         .hero-content {
             text-align: center;
             margin: 0 auto;
             padding: 20px 10px;
-
         }
-
     }
-    
-    @import "bootstrap/scss/bootstrap";
-
-$theme-colors: (
-    "primary": $background-muted,
-    "dark": $accent-purple,
-    "warning": $gold,
-    "txt": $text-muted
-);
-
-.bg-primary { background-color: $background-muted; }
-.bg-gold { background-color: gold; }
-.text-purple { color: $accent-purple; }

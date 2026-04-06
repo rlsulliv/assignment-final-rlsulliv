@@ -24,85 +24,99 @@ function BirthChart() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const data = await getBirthChart(formData)
+            const data = await getBirthChart({
+                ...formData,
+                year: parseInt(formData.year),
+                month: parseInt(formData.month),
+                day: parseInt(formData.day),
+                hour: parseInt(formData.hour),
+                minute: parseInt(formData.minute),
+                latitude: parseFloat(formData.latitude),
+                longitude: parseFloat(formData.longitude)
+            })
+            console.log('Chart data:', data)
             setChartData(data)
         } catch (error) {
-            alert("Error fetching chart.")
+            console.error('API error response:', error.response?.data) // This will show exactly what field failed
+            throw error;
         }
     }
+
     return (
         <div className="container my-5 px-4">
-            <h1 className="text-center mb-4 display-5 fw-light">Create Your Natal Chart</h1>
-            <p className="text-center text-muted mb-5">Enter your birth details exactly as they appear on your records.</p>
+            <h1 className="text-center mb-4 display-5 fw-bold" style={{ fontFamily: 'Cinzel, serif' }}>Create Your Natal Chart</h1>
+            <p className="text-center text-white mb-5">Enter your birth details exactly as they appear on your records.</p>
 
-            <form onSubmit={handleSubmit} className="row g-3 shadow-sm p-4 rounded bg-white border">
+            <form onSubmit={handleSubmit} className="row g-3 shadow-sm p-4 rounded bg-primary border-gold">
                 <div className="col-md-6">
-                    <label className="form-label">Full Name</label>
+                    <label className="form-label text-white">Full Name</label>
                     <input type="text" name="name" className="form-control" onChange={handleChange} required />
                 </div>
                 <div className="col-md-3">
-                    <label className="form-label">Birth City</label>
+                    <label className="form-label text-white">Birth City</label>
                     <input type="text" name="city" className="form-control" onChange={handleChange} placeholder="e.g. Halifax" required />
                 </div>
                 <div className="col-md-3">
-                    <label className="form-label">Nation (ISO Code)</label>
+                    <label className="form-label text-white">Nation (ISO Code)</label>
                     <input type="text" name="nation" className="form-control" onChange={handleChange} placeholder="e.g. CA" required />
                 </div>
 
                 <div className="col-md-2">
-                    <label className="form-label">Day</label>
+                    <label className="form-label text-white">Day</label>
                     <input type="number" name="day" className="form-control" onChange={handleChange} required />
                 </div>
                 <div className="col-md-2">
-                    <label className="form-label">Month</label>
+                    <label className="form-labe text-white">Month</label>
                     <input type="number" name="month" className="form-control" onChange={handleChange} required />
                 </div>
                 <div className="col-md-2">
-                    <label className="form-label">Year</label>
+                    <label className="form-label text-white">Year</label>
                     <input type="number" name="year" className="form-control" onChange={handleChange} required />
                 </div>
                 <div className="col-md-3">
-                    <label className="form-label">Hour (24h)</label>
+                    <label className="form-label text-white">Hour (24h)</label>
                     <input type="number" name="hour" className="form-control" onChange={handleChange} required />
                 </div>
                 <div className="col-md-3">
-                    <label className="form-label">Minute</label>
+                    <label className="form-label text-white">Minute</label>
                     <input type="number" name="minute" className="form-control" onChange={handleChange} required />
                 </div>
 
                 <div className="col-md-4">
-                    <label className="form-label">Latitude</label>
+                    <label className="form-label text-white">Latitude</label>
                     <input type="number" step="any" name="latitude" className="form-control" onChange={handleChange} placeholder="e.g. 44.64" required />
                 </div>
                 <div className="col-md-4">
-                    <label className="form-label">Longitude</label>
+                    <label className="form-label text-white">Longitude</label>
                     <input type="number" step="any" name="longitude" className="form-control" onChange={handleChange} placeholder="e.g. -63.57" required />
                 </div>
                 <div className="col-md-4">
-                    <label className="form-label">Timezone</label>
+                    <label className="form-label text-white">Timezone</label>
                     <input type="text" name="timezone" className="form-control" onChange={handleChange} placeholder="e.g. America/Halifax" required />
                 </div>
 
                 <div className="col-12 text-center mt-4">
-                    <button type="submit" className="btn btn-dark btn-lg px-5 shadow-sm">
+                    <button type="submit" className="btn btn-gold btn-lg px-5 shadow-sm">
                         Generate Chart
                     </button>
                 </div>
             </form>
 
-            {chartData && (
-                <div className="mt-5 text-center">
-                    <h2 className="mb-4">Your Cosmic Blueprint</h2>
-                    {chartData.chart_url && (
-                        <img src={chartData.chart_url} alt="Natal Chart" className="img-fluid rounded shadow" />
-                    )}
-                    <pre className="text-start bg-light p-3 mt-4">
-                        {JSON.stringify(chartData, null, 2)}
-                    </pre>
-                </div>
-            )}
-        </div>
-    );
+        {chartData && (
+            <div className="mt-5 text-center">
+                <h2 className="mb-4" style={{ fontFamily: 'Cinzel, serif' }}>Your Cosmic Blueprint</h2>
+                {chartData.chart && (
+                    <div className="bg-primary border-gold rounded p-4 mx-auto" style={{ maxWidth: '800px' }}>
+                        <div dangerouslySetInnerHTML={{ __html: chartData.chart }}
+                        className="img-fluid rounded shadow mx-auto"
+                        style={{ maxWidth: '800px' }}>
+                        </div>
+                    </div>
+                )}
+            </div>
+        )}
+        </div>  
+    )
 }
 
 export default BirthChart

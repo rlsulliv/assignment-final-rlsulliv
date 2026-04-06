@@ -23,32 +23,29 @@ const Header = () => {
 
   return (
     <header className="site-header">
-      <div className="holder">
-        <div className="logo">
+      <div className="d-flex justify-content-between align-items-center px-3 py-2">
+        <div className="d-flex align-items-center gap-3">
           <img src={logo} alt="logo" style={{ width: '80px' }} />
           <span className="site-name">Luna</span>
         </div>
 
-        <div className="moonPhaseHeader">
-            <div>
+        <div className="moonPhaseHeader text-end pe-2">
+            <div className="mt-2 mb-1">
               {moonPhase 
                 ? moonPhase.moon_phase_overview.moon.emoji + ' ' + moonPhase.moon_phase_overview.moon.phase_name 
                 : 'Loading...'}
             </div>
-            <div>🕐 {new Date().toLocaleDateString()}</div>
+            <div classname="small">🕐 {new Date().toLocaleDateString()}</div>
         </div>
       </div>
      <Navbar expand="lg" className="gold-navbar">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="mx-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/MoonPhases">Moon Phases</Nav.Link>
             <Nav.Link as={Link} to="/BirthChart"> Create Birth Chart</Nav.Link>
-            <Nav.Link href="">Home</Nav.Link>
-            <Nav.Link href="">Link</Nav.Link>
-            <Nav.Link href="">Home</Nav.Link>
-            <Nav.Link href="">Link</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

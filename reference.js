@@ -19,5 +19,6 @@ form using API tutorial = https://www.youtube.com/watch?v=JgeZF_2GcOc
                         https://www.youtube.com/watch?v=prl4-cwMvzA
 specifically the e.preventDefault() and onSubmit()
 
+footer = https://flowbite-react.com/docs/components/footer
 */
 
