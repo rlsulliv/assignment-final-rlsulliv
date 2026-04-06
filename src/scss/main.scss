@@ -160,3 +160,16 @@ header.site-header {
         }
 
     }
+    
+    @import "bootstrap/scss/bootstrap";
+
+$theme-colors: (
+    "primary": $background-muted,
+    "dark": $accent-purple,
+    "warning": $gold,
+    "txt": $text-muted
+);
+
+.bg-primary { background-color: $background-muted; }
+.bg-gold { background-color: gold; }
+.text-purple { color: $accent-purple; }

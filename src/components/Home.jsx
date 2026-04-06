@@ -114,7 +114,7 @@ function Home() {
                 placeholder="🔍 Search moon phases..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="search-bar"
+                className="search-bar form-control form-control-lg rounded-pill shadow-sm border-primary text-primary"
               />
             </div>
         </div>
@@ -122,21 +122,21 @@ function Home() {
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
                 {filteredPhases.map((phase) => (
                   <div key={phase.name} className="col">
-                    <div className="card h-100 border-0 shadow-sm text-center bg-light transition-hover">
+                    <div className="card h-100 border-primary shadow-sm text-center bg-primary transition-hover">
                       <div className="card-body">
                         <div className="display-4 mb-3">{phase.emoji}</div>
                         <h3 className="card-title h5 mb-3">{phase.name}</h3>
                         
-                        <div className="card-text small text-muted">
+                        <div className="card-text small">
                           <p className="mb-1">
                             <strong>Next:</strong> {phase.next.includes('Calculated') ? phase.next : phase.next.split(' ').slice(0, 4).join(' ')}
                           </p>
                           {phase.last !== 'Calculated' && (
-                            <p className="mb-1">
+                            <p className="mb-1 opacity-75">
                               <strong>Last:</strong> {phase.last.split(' ').slice(0, 4).join(' ')}
                             </p>
                           )}
-                          <p className="mt-3 badge bg-dark fw-light">
+                          <p className="mt-3 badge bg-primary text-white fw-light px-3 py-2 rounded-pill">
                             {phase.days_ahead === '~' ? 'Approximate date' : `In ${phase.days_ahead} days`}
                           </p>
                         </div>
@@ -148,7 +148,7 @@ function Home() {
 
               {filteredPhases.length === 0 && (
                 <div className="text-center mt-5">
-                  <p className="text-muted">No phases found for "{search}"</p>
+                  <p className="fw-bold">No phases found for "{search}"</p>
                 </div>
               )}
             </section>
