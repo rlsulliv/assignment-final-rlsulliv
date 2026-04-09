@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { getBirthChart } from '/src/components/PullAPI';
 
 function BirthChart() {
+    const [svgUrl, setSvgUrl] = useState(null)
+
     const [formData, setFormData] = useState({
         name: '',
         year: '',
@@ -23,6 +25,7 @@ function BirthChart() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
         try {
             const data = await getBirthChart({
                 ...formData,
@@ -34,10 +37,15 @@ function BirthChart() {
                 latitude: parseFloat(formData.latitude),
                 longitude: parseFloat(formData.longitude)
             })
+
             console.log('Chart data:', data)
             setChartData(data)
+            
+            const svgBlob = new Blob([data.chart], { type: 'image/svg+xml'} )
+            setSvgUrl(URL.createObjectURL(svgBlob))
+
         } catch (error) {
-            console.error('API error response:', error.response?.data) // This will show exactly what field failed
+            console.error('API error response:', error.response?.data) 
             throw error;
         }
     }
@@ -105,14 +113,16 @@ function BirthChart() {
         {chartData && (
             <div className="mt-5 text-center">
                 <h2 className="mb-4" style={{ fontFamily: 'Cinzel, serif' }}>Your Cosmic Blueprint</h2>
-                {chartData.chart && (
-                    <div className="bg-primary border-gold rounded p-4 mx-auto" style={{ maxWidth: '800px' }}>
-                        <div dangerouslySetInnerHTML={{ __html: chartData.chart }}
+                <div className="bg-primary border-gold rounded p-4 mx-auto" style={{ maxWidth: '1800px' }}>
+                {svgUrl && (
+                    <img 
+                        src={svgUrl} 
+                        alt="natal birth chart"  
                         className="img-fluid rounded shadow mx-auto"
-                        style={{ maxWidth: '800px' }}>
-                        </div>
-                    </div>
-                )}
+                        style={{ maxWidth: '100%' }} />
+                    )
+                }
+                </div>
             </div>
         )}
         </div>  

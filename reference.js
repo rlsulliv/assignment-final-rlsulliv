@@ -19,6 +19,9 @@ form using API tutorial = https://www.youtube.com/watch?v=JgeZF_2GcOc
                         https://www.youtube.com/watch?v=prl4-cwMvzA
 specifically the e.preventDefault() and onSubmit()
 
+SVG convert to IMG: https://www.svgai.org/blog/convert-svg-string-to-image
+used the "Basic Canvas Conversion"
+
 footer = https://flowbite-react.com/docs/components/footer
 */
 
