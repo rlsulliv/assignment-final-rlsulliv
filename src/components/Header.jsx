@@ -1,4 +1,4 @@
-import logo from '/src/white-logo.svg';
+import logo from '/src/assets/white-logo.svg';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';

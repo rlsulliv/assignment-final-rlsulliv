@@ -22,6 +22,6 @@ specifically the e.preventDefault() and onSubmit()
 SVG convert to IMG: https://www.svgai.org/blog/convert-svg-string-to-image
 used the "Basic Canvas Conversion"
 
-footer = https://flowbite-react.com/docs/components/footer
+footer = https://medium.com/@racosta323/create-a-simple-footer-using-react-bootstrap-58c4371a4ade
 */
 

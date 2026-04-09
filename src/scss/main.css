@@ -11660,6 +11660,12 @@ header.site-header .moonPhaseHeader div:last-child {
   margin-bottom: 32px;
 }
 
+.space-bg {
+  background-image: url(/src/assets/space-bg2.webp);
+  background-size: cover;
+  height: 20vh;
+}
+
 @media (max-width: 900px) {
   .hero-image-two {
     display: block;
