@@ -12,7 +12,6 @@ const Header = () => {
   useEffect(() => {
   getMoonPhase()
     .then((response) => {
-      console.log(response)
       setMoonPhase(response)
     })
     .catch((error) => {

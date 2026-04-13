@@ -1,29 +1,17 @@
 import axios from 'axios';
 
+const rapidApiHeaders = {
+  'x-rapidapi-key': '828f93c5dcmshb4e98a477fec609p1cf03fjsn18b81520adaa',
+  'x-rapidapi-host': 'astrologer.p.rapidapi.com',
+  'Content-Type': 'application/json'
+}
+
 export const getMoonPhase = async () => {
   const moonDataURL = 'https://astrologer.p.rapidapi.com/api/v5/moon-phase/now-utc'
-  const cached = localStorage.getItem('moonPhase')
-  const cachedDate = localStorage.getItem('moonPhaseDate')
-  const today = new Date().toDateString()
-
-  if (cached && cachedDate === today) {
-      return JSON.parse(cached)
-  }
 
   const response = await axios.post(
-      moonDataURL,
-      {},
-      {
-        headers: {
-              'x-rapidapi-key': '828f93c5dcmshb4e98a477fec609p1cf03fjsn18b81520adaa',
-              'x-rapidapi-host': 'astrologer.p.rapidapi.com',
-              'Content-Type': 'application/json'
-        }
-      }
+      moonDataURL, {}, { headers: rapidApiHeaders }
     )
-
-  localStorage.setItem('moonPhase', JSON.stringify(response.data))
-  localStorage.setItem('moonPhaseDate', today)
 
   return response.data
 }
@@ -31,21 +19,10 @@ export const getMoonPhase = async () => {
 export const getBirthChart = async (userData) => {
   const birthChartURL = 'https://astrologer.p.rapidapi.com/api/v5/chart/birth-chart'
 
-  const cacheKey = `chart_${userData.name.replace(/\s+/g, '_').toLowerCase()}`;
-  const cachedChart = localStorage.getItem(cacheKey);
-
-  if (cachedChart) {
-    return JSON.parse(cachedChart);
-  }
-
   const options = {
     method: 'POST',
     url: birthChartURL,
-    headers: {
-      'x-rapidapi-key': '828f93c5dcmshb4e98a477fec609p1cf03fjsn18b81520adaa',
-      'x-rapidapi-host': 'astrologer.p.rapidapi.com',
-      'Content-Type': 'application/json'
-    },
+    headers: rapidApiHeaders,
     data: {
       subject: {
         name: userData.name,
@@ -68,49 +45,19 @@ export const getBirthChart = async (userData) => {
       transparent_background: false,
       show_house_position_comparison: true,
       custom_title:  `${userData.name}'s Natal Chart`,
-      active_points: [
-        'Sun',
-        'Moon',
-        'Mercury',
-        'Venus',
-        'Mars',
-        'Jupiter',
-        'Saturn',
-        'Uranus',
-        'Neptune',
-        'Pluto',
-        'Chiron',
-        'Lilith',
-        'north_node'
-      ],
+      active_points: ['Sun','Moon','Mercury','Venus','Mars','Jupiter','Saturn','Uranus','Neptune','Pluto','Chiron','Lilith', 'north_node'],
       active_aspects: [
-        {
-          name: 'conjunction',
-          orb: 8
-        },
-        {
-          name: 'opposition',
-          orb: 8
-        },
-        {
-          name: 'trine',
-          orb: 8
-        },
-        {
-          name: 'square',
-          orb: 8
-        },
-        {
-          name: 'sextile',
-          orb: 6
-        }
+        { name: 'conjunction', orb: 8 },
+        { name: 'opposition', orb: 8 },
+        { name: 'trine', orb: 8 },
+        { name: 'square', orb: 8 },
+        { name: 'sextile', orb: 6}
       ]
     }
   };
 
   try {
     const response = await axios.request(options);
-    localStorage.setItem(cacheKey, JSON.stringify(response.data));
     return response.data;
   } catch (error) {
     console.error(error);

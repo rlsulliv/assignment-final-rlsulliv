@@ -81,12 +81,12 @@ function MoonPhases() {
     const [search, setSearch] = useState('')
 
     useEffect(() => {
-    getMoonPhase()
-      .then((response) => {
-        setMoonData(response)
-        setPhaseList(buildPhaseList(response))
-      })
-      .catch((error) => console.log(error))
+      getMoonPhase()
+        .then((response) => {
+          setMoonData(response)
+          setPhaseList(buildPhaseList(response))
+        })
+        .catch((error) => console.log(error))
     }, [])
 
     const filteredPhases = phaseList.filter(phase =>
