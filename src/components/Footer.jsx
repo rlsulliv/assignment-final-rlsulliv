@@ -13,22 +13,22 @@ function Footer() {
                                 src='/src/assets/white-logo.svg'
                                 alt='logo'
                                 rounded
-                                width={150}
-                                height={150}
+                                width={90}
+                                height={90}
                             />
                             <p>✦ follow the lunar cycle ✦</p>
                             <h2 style={{ fontFamily: 'Cinzel, serif' }}>LUNA</h2>
                         </Stack>    
                     </Col>
                     <Col> 
-                        <Nav className="flex-column fs-5">
+                        <Nav className="flex-column fs-5 pt-5">
                             <Nav.Link as={Link} to="/" className='text-white'>Home</Nav.Link>
                             <Nav.Link as={Link} to="/MoonPhases" className='text-white'>Moon Phases</Nav.Link>
                             <Nav.Link as={Link} to="/BirthChart" className='text-white'> Create Birth Chart</Nav.Link>
                         </Nav>
                     </Col>
-                    <Col>
-                        <h4>Contact us!</h4>
+                    <Col className="pt-5">
+                        <h2  style={{ fontFamily: 'Cinzel, serif' }}>Contact us!</h2>
                         <p>lunamoonphases@fake.com</p>
                         <p>Phone: (555)555-5555</p>
                     </Col>

@@ -13,6 +13,8 @@ Claude AI was used to help sort out how to pull this
 
 getBirthChart API = https://rapidapi.com/gbattaglia/api/astrologer/playground/apiendpoint_bf3b8073-aa95-4614-b607-dfd34c26fbd0
 
+serach bar = https://www.youtube.com/watch?v=sWVgMcz8Q44
+
 form using API tutorial = https://www.youtube.com/watch?v=JgeZF_2GcOc  
                         https://www.youtube.com/watch?v=WrX5RndZIzw
                         https://www.youtube.com/watch?v=_QpTQrxzY8A
@@ -23,5 +25,8 @@ SVG convert to IMG: https://www.svgai.org/blog/convert-svg-string-to-image
 used the "Basic Canvas Conversion"
 
 footer = https://medium.com/@racosta323/create-a-simple-footer-using-react-bootstrap-58c4371a4ade
+
+body, planet keywords/summary: https://jessicadavidson.co.uk/tag/planet-keywords/
+& https://www.chani.com/blogs/your-guide-to-planetary-days#
 */
 

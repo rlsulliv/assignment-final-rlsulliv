@@ -3,7 +3,7 @@ import { getMoonPhase } from '/src/components/PullAPI'
 
 const buildPhaseList = (data) => {
   const phases = data.moon_phase_overview.moon.detailed.upcoming_phases
-
+  
   const midpoint = (date1, date2) => {
     const d1 = new Date(date1)
     const d2 = new Date(date2)
@@ -90,7 +90,9 @@ function MoonPhases() {
     }, [])
 
     const filteredPhases = phaseList.filter(phase =>
-        phase.name.toLowerCase().includes(search.toLowerCase())
+      phase.name.toLowerCase().includes(search.toLowerCase()) ||
+      phase.next.toLowerCase().includes(search.toLowerCase()) ||
+      (phase.last !== 'Calculated' && phase.last.toLowerCase().includes(search.toLowerCase()))
     )
 
     return (
